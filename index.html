@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PhyLab - Learn Physics with Games, Simulations, and Videos</title>
+  <meta name="description" content="A modern, beautiful physics education site packed with creative games, interactive simulations, and curated videos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content container">
+      <h1>PhyLab</h1>
+      <p>Play. Explore. Understand. A creative playground of physics games, interactive simulations, and learning videos.</p>
+      <nav class="tabs" aria-label="Primary">
+        <button class="tab active" data-tab="home" aria-controls="home" aria-selected="true">Home</button>
+        <button class="tab" data-tab="games" aria-controls="games">Games</button>
+        <button class="tab" data-tab="simulations" aria-controls="simulations">Simulations</button>
+        <button class="tab" data-tab="videos" aria-controls="videos">Videos</button>
+        <button class="tab" data-tab="learn" aria-controls="learn">Learn</button>
+        <button class="tab" data-tab="about" aria-controls="about">About</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="panel active" tabindex="0">
+      <div class="grid two">
+        <div class="card">
+          <h2>Welcome to PhyLab</h2>
+          <p>Discover physics through play. Dive into our full mini-games built around real mechanics, and experiment using interactive simulations to build intuition. Learn with curated videos and quick notes.</p>
+          <ul>
+            <li>3 creative, complete physics games</li>
+            <li>4 interactive physics simulations</li>
+            <li>Curated video playlists</li>
+            <li>Clean, modern design with dark mode</li>
+          </ul>
+          <div class="cta-group">
+            <a class="btn primary" href="#" data-tab-jump="games">Play Games</a>
+            <a class="btn" href="#" data-tab-jump="simulations">Try Simulations</a>
+          </div>
+        </div>
+        <div class="card media">
+          <canvas id="home-orbit" width="640" height="400" aria-label="Orbit animation"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section id="games" class="panel" tabindex="0">
+      <h2>Games</h2>
+      <p class="muted">Each game is a full experience with goals, scoring, and physics-driven mechanics.</p>
+      <div class="subtabs" role="tablist" aria-label="Games">
+        <button class="subtab active" data-subtab="glider">Space Glider</button>
+        <button class="subtab" data-subtab="torque">Torque Tycoon</button>
+        <button class="subtab" data-subtab="optics">Mirror Madness</button>
+      </div>
+
+      <div class="subpanel active" data-subpanel="glider">
+        <div class="grid two-two">
+          <div class="card media">
+            <canvas id="game-glider" width="900" height="520" aria-label="Space Glider game"></canvas>
+          </div>
+          <div class="card">
+            <h3>Space Glider</h3>
+            <p>Use thrusters to navigate gravitational wells and collect energy orbs. Conserve fuel, avoid collisions, and slingshot for efficiency!</p>
+            <ul class="pill-list">
+              <li>Arrow keys / WASD: Thrust</li>
+              <li>Shift: Boost</li>
+              <li>R: Restart level</li>
+            </ul>
+            <div id="glider-ui" class="controls"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subpanel" data-subpanel="torque">
+        <div class="grid two-two">
+          <div class="card media">
+            <canvas id="game-torque" width="900" height="520" aria-label="Torque Tycoon game"></canvas>
+          </div>
+          <div class="card">
+            <h3>Torque Tycoon</h3>
+            <p>Balance a lever by placing masses at different distances. Hit the target angle to win. Teaches torque = r × F and center of mass.</p>
+            <div id="torque-ui" class="controls"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subpanel" data-subpanel="optics">
+        <div class="grid two-two">
+          <div class="card media">
+            <canvas id="game-optics" width="900" height="520" aria-label="Mirror Madness game"></canvas>
+          </div>
+          <div class="card">
+            <h3>Mirror Madness</h3>
+            <p>Rotate mirrors to direct a light beam onto targets. Observe the law of reflection in action.</p>
+            <div id="optics-ui" class="controls"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="simulations" class="panel" tabindex="0">
+      <h2>Simulations</h2>
+      <p class="muted">Tune parameters, run, pause, and visualize the physics.</p>
+      <div class="subtabs" role="tablist" aria-label="Simulations">
+        <button class="subtab active" data-subtab="projectile">Projectile Motion</button>
+        <button class="subtab" data-subtab="pendulum">Pendulum</button>
+        <button class="subtab" data-subtab="rc">RC Circuit</button>
+        <button class="subtab" data-subtab="waves">Wave Interference</button>
+      </div>
+
+      <div class="subpanel active" data-subpanel="projectile">
+        <div class="grid two-two">
+          <div class="card media">
+            <canvas id="sim-projectile" width="900" height="520" aria-label="Projectile simulation"></canvas>
+          </div>
+          <div class="card">
+            <h3>Projectile Motion</h3>
+            <div id="projectile-ui" class="controls"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subpanel" data-subpanel="pendulum">
+        <div class="grid two-two">
+          <div class="card media">
+            <canvas id="sim-pendulum" width="900" height="520" aria-label="Pendulum simulation"></canvas>
+          </div>
+          <div class="card">
+            <h3>Pendulum</h3>
+            <div id="pendulum-ui" class="controls"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subpanel" data-subpanel="rc">
+        <div class="grid two-two">
+          <div class="card media">
+            <canvas id="sim-rc" width="900" height="520" aria-label="RC circuit simulation"></canvas>
+          </div>
+          <div class="card">
+            <h3>RC Circuit</h3>
+            <div id="rc-ui" class="controls"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subpanel" data-subpanel="waves">
+        <div class="grid two-two">
+          <div class="card media">
+            <canvas id="sim-waves" width="900" height="520" aria-label="Wave interference simulation"></canvas>
+          </div>
+          <div class="card">
+            <h3>Wave Interference</h3>
+            <div id="waves-ui" class="controls"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="videos" class="panel" tabindex="0">
+      <h2>Videos</h2>
+      <p class="muted">Curated playlists from great creators. Open within the site.</p>
+      <div class="grid three">
+        <div class="card">
+          <h3>Kinematics & Forces</h3>
+          <div class="video-embed">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLSQl0a2vh4HB7P1f6O0AnWj26G1P2B050" title="YouTube playlist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Electricity & Magnetism</h3>
+          <div class="video-embed">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLybg94GvOJ9H6rS9Qv1VxW4A7fS0L2o5u" title="YouTube playlist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Waves & Optics</h3>
+          <div class="video-embed">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL6C8BDEEBA7A7E36D" title="YouTube playlist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      <p class="muted small">Playlists are embedded from YouTube; availability may vary by region.</p>
+    </section>
+
+    <section id="learn" class="panel" tabindex="0">
+      <h2>Learn</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>Quick Notes</h3>
+          <ul class="pill-list">
+            <li>Newton's 2nd Law: F = m a</li>
+            <li>Work-Energy: ΔK = W, E_total conserved</li>
+            <li>Momentum: p = m v, conserved in isolation</li>
+            <li>Torque: τ = r × F = r F sinθ</li>
+            <li>SHM: T = 2π sqrt(L/g) (pendulum small-angle)</li>
+            <li>RC charge: Vc(t) = V(1 - e^{-t/RC})</li>
+            <li>Wave speed: v = f λ</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Challenges</h3>
+          <ol>
+            <li>Space Glider: Finish level 2 using less than 40% fuel.</li>
+            <li>Torque Tycoon: Balance a 10 kg mass at 0.5 m with two smaller masses.</li>
+            <li>Mirror Madness: Hit two targets using only one mirror.</li>
+            <li>Projectile: Match a range of 50 m at g = 9.81 with and without drag.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="panel" tabindex="0">
+      <h2>About</h2>
+      <p>PhyLab is a free, open-source project to make learning physics delightful. Built with vanilla HTML5 Canvas + JavaScript for speed and clarity.</p>
+      <p>Made with ❤️ by the community.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <span>© <span id="year"></span> PhyLab</span>
+      <span>•</span>
+      <a href="#" data-tab-jump="about">About</a>
+      <span>•</span>
+      <a href="https://github.com/AbdallahAyman2/test-for-gpt5" target="_blank" rel="noopener">Source</a>
+    </div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
